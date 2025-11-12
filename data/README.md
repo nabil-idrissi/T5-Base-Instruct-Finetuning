@@ -1,14 +1,17 @@
-The dataset was reconstructed to match the needed format. One that let us finetune the T5 model on instructions.
-The first column (article) of the initial 'cnn_dailymail' dataset is turned into this:
+I’m saving a copy of the instruction-augmented test dataset of the cnn_dailymail, as I will use it to test both Flan-T5 and my fine-tuned T5 model. A fair comparison requires using the same test set for both models.
 
-> > A randomly chosen instruction from a list + initial cnn_dailymail column
+For instruction-based fine-tuning, I’m augmenting the cnn_dailymail dataset to allow the T5 model to learn from instructions. The augmentation is done as follows:
 
-For example:
+The first column (article) of the original cnn_dailymail dataset is combined with a randomly chosen instruction from a predefined list.
 
-> > > LONDON, England (Reuters) -- Harry Potter star Daniel Radcliffe gains access to a reported £20 million...
+Example:
 
-Turns into:
+Original article:
 
-> > > Summarize this text: LONDON, England (Reuters) -- Harry Potter star Daniel Radcliffe gains access to a reported £20 million...
+LONDON, England (Reuters) -- Harry Potter star Daniel Radcliffe gains access to a reported £20 million...
 
-Also, this new data is saved to make a fair comparison later on, when evaluating all models, as randomly choosing instructions would make training/testing on the huggingface dataset differ between models, and one version that can be used across all of them would solve this.
+Augmented with instruction:
+
+Summarize this text: LONDON, England (Reuters) -- Harry Potter star Daniel Radcliffe gains access to a reported £20 million...
+
+This ensures the model sees instruction + text pairs during fine-tuning, allowing it to generalize to similar summarization prompts at inference time.
