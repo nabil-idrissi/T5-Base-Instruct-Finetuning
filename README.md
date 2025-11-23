@@ -15,4 +15,4 @@ When training on 100% of the dataset:
 
 - larger datasets require lower LR and fewer epochs
 
-The ([current notebooks](https://github.com/nabil-idrissi/T5-Base-Instruct-Finetuning/tree/main/notebooks)) focuses on **learning the finetuning pipeline only,** not producing a production-ready model yet.
+The [current notebooks](https://github.com/nabil-idrissi/T5-Base-Instruct-Finetuning/tree/main/notebooks) focuses on **learning the finetuning pipeline only,** not producing a production-ready model yet.
